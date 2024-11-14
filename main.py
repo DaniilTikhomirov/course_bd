@@ -5,16 +5,10 @@ from progress.bar import IncrementalBar
 from src.Vacancy import Vacancy
 from src.HH import HeadHunterAPI
 from src.DBManager import DBManager
-from dotenv import load_dotenv
-
-load_dotenv()
-
+from config.config import config
 
 def main():
-    params = {"host": "localhost",
-              "port": "5432",
-              "user": os.getenv("user"),
-              "password": os.getenv("password")}
+    params = config()
 
     hh = HeadHunterAPI()
     job_name = input("which job would you like to run? : ")
